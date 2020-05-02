@@ -28,16 +28,11 @@
         > 
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
         <!-- for icon -->
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -56,45 +51,54 @@
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#aboutme">About me</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#experiences">Experiences</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#link">Link</a>
-                      </li>                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contactme">Contact me</a>
-                    </li>    
-                  </ul>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#aboutme">About me</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#experiences">Experiences</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#link">Link</a>
+                        </li>                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contactme">Contact me</a>
+                        </li>    
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./portfolio_english.html">English</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./portfolio_japanese.html">日本語</a>
+                        </li>
+                    </ul>
                 </div>         
               </nav>
         </header>
         <main>
-            <h1 class="name">Chihiro Nakatani</h1>
+            <h1 class="name">中谷千洋</h1>
             <div id="aboutme">
                 <h1 class="title">About me</h2>
                 <ul class="aboutme">
                     <li class="aboutme">
-                        <p> I am an undergraduate student at 
-                            <a href="https://www.toyota-ti.ac.jp/" target="_blank" rel="noopener noreferrer">Toyota Technological Institute (Japan)<a>.
+                        <p>
+                           <a href="https://www.toyota-ti.ac.jp/" target="_blank" rel="noopener noreferrer">Toyota Technological Institute (Japan)<a>
+                            の学部3年生です。
                         </p>
                         <p>
-                            I am majoring in engineering,
-                            interested in computer science.
+                            工学部に所属しています。
+                            特にコンピュータサイエンスに興味があります。
                         </p>
                     </li>
                     <li class="aboutme">
                         <p>
-                            In my part-time job, I have a little experience to develop web system and neural network model.
+                            アルバイトで, ウェブシステム開発や深層学習モデル作成の経験が少しあります。
                         </p>
                     </li>
                     <li class="aboutme">
-                        <p>My hobby is to play and watch sports!! I had played handball for about six years.</p>
-                        <p>I often watch baseball, soccer, handball and so on.</p>
+                        <p>趣味はスポーツをみる・やることや, 音楽を聞くことです。ハンドボールは約6年間経験があります。</p>
+                        <p>よく, プロ野球を見ます。他にもサッカー, バスケットボールなどもオールマイティに観戦します!</p>
                     </li>
                 </ul>
             </div>
@@ -102,35 +106,35 @@
                 <h1 class="title">Experiences</h2>
                 <ul class="experienceParent">
                     <li class="experienceParent">
-                        <span>Tracking person and face recognition</span>
+                        <span>人物トラッキングと, 顔認証システムの構築</span>
                         <ul>
                             <li>Python3 (Dlib based c++ , LightTrack)</li>
                         </ul>
                     </li>
                     <li class="experienceParent">
-                        <span>Training person detection model</span>
+                        <span>人物検知モデルの作成</span>
                         <ul>
                             <li>Python3 (Yolov3-spp, ssd, M2Det)</li>
                         </ul>
                     </li>
                     <li class="experienceParent">
-                        <span>Training material detection model</span>
+                        <span>異物検出のモデル作成</span>
                         <ul>
                             <li>Python3 (Yolov3)</li>
                         </ul>
                     </li>
                     <li class="experienceParent">
-                        <span>Othello game (My class task in institute)</span>
+                        <span>オセロゲーム開発 (講義の課題で作成)</span>
                         <ul>
                             <li>Python3 (tkinter)</li>
                         </ul>
                     </li>
                     <li class="experienceParent">
-                        <span>Web system (Part-time job)</span>
+                        <span>商品管理ウェブシステムの開発</span>
                         <ul>
-                            <li>Server-side ...java (playframework)</li>
-                            <li>Front-end... html, css, javascript</li>
-                            <li>Database... postgresql</li>
+                            <li>サーバーサイド ...java (playframework)</li>
+                            <li>フロントエンド ... html, css, javascript</li>
+                            <li>データベース   ... postgresql</li>
                         </ul>
                     </li>
 
@@ -138,17 +142,17 @@
             </div>
             <div id="link">
                 <h1 class="title">Link</h2>
-                <p>Qitta page...<a href="https://qiita.com/chi-na" target="_blank" rel="noopener noreferrer"><span>https://qiita.com/chi-na</span></a></p>
-                <p>Wantedly page...<a href="https://www.wantedly.com/users/113653637" target="_blank" rel="noopener noreferrer"><span>https://www.wantedly.com/users/113653637</span></a></p>
-                <p>Github page...<a href="https://github.com/chihina" target="_blank" rel="noopener noreferrer"><span>https://github.com/chihina</span></a></p>
+                <p>Qitta ページ... <a href="https://qiita.com/chi-na" target="_blank" rel="noopener noreferrer"><span>https://qiita.com/chi-na</span></a></p>
+                <p>Wantedly ページ... <a href="https://www.wantedly.com/users/113653637" target="_blank" rel="noopener noreferrer"><span>https://www.wantedly.com/users/113653637</span></a></p>
+                <p>Github ページ... <a href="https://github.com/chihina" target="_blank" rel="noopener noreferrer"><span>https://github.com/chihina</span></a></p>
             </div>
             <div id="contactme">
                 <h1 class="title">Contact Me</h2>
                 <p> 
-                    If you wanna contact with me, please send a mail for me !! please click this button.
+                    ご連絡は右のメールボタンからお願い致します。
                     <a class="icon" href="mailto:sd18064@toyota-ti.ac.jp"><i class="fas fa-envelope"></i></a>
                 </p>
-                <p>And, you can use wantedly message form. thank you for watching this page.</p>
+                <p>または, wantedlyのメッセージでも対応可能です。 ページを閲覧頂きありがとうございます。</p>
             </div>
         </main>
         <footer>
