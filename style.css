@@ -29,10 +29,6 @@ ul.aboutme {
     list-style: none;
   }
 
-.name {
-    font-family: 'Corben', cursive;
-}
-
 li.aboutme {
     margin-bottom: 20px;
 }
