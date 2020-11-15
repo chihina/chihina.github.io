@@ -2,8 +2,6 @@ body {
     padding-top: 50px; 
 }
 
-
-
 main {
     margin: 5px 10px;
 }
@@ -49,4 +47,3 @@ li.experienceParent{
   padding: 0.5em;
   list-style-type: none!important;
 }
-
