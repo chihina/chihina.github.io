@@ -22,9 +22,7 @@
         <meta name="descriprion" 
         content="this site is portfolio of chihiro nakatani.
                 It shows self introduction and experience of develop.
-                このページは中谷千洋のポートフォリオページです。
-                簡単な自己紹介や開発経験について記されています。
-                github pages ブログ github pages 例"
+                このページは中谷千洋のポートフォリオページです。"
         > 
 
         <!-- Bootstrap CSS -->
@@ -46,17 +44,20 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-                <a class="navbar-brand" href="#top">My portfolio</a>
+                <a class="navbar-brand" href="#top">Chihiro Nakatani</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#aboutme">About me</a>
+                        <a class="nav-link" href="#aboutme">About me</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#experiences">Experiences</a>
+                            <a class="nav-link" href="#publications">Publications</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#internships">Internships</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#link">Link</a>
@@ -81,69 +82,67 @@
                 <h1 class="title">About me</h2>
                 <ul class="aboutme">
                     <li class="aboutme">
+                        <img src="imgs/croped_face.jpg" alt="Face">
+                    </li>
+                    <li class="aboutme">
                         <p>
                            <a href="https://www.toyota-ti.ac.jp/" target="_blank" rel="noopener noreferrer">Toyota Technological Institute (Japan)<a>
-                            の学部3年生です。
+                            の大学院1年生です。
                         </p>
                         <p>
-                            工学部に所属しています。
-                            特にコンピュータサイエンスに興味があります。
+                            コンピュータビジョン、深層学習に興味があります。
                         </p>
                     </li>
                     <li class="aboutme">
                         <p>
-                            アルバイトで, ウェブシステム開発や深層学習モデル作成の経験が少しあります。
+                            現在は知能情報メディア研究室に所属し、浮田教授の下で研究をしています。
                         </p>
-                    </li>
-                    <li class="aboutme">
-                        <p>趣味はスポーツをみる・やることや, 音楽を聞くことです。ハンドボールは約6年間経験があります。</p>
-                        <p>よく, プロ野球を見ます。他にもサッカー, バスケットボールなどもオールマイティに観戦します!</p>
                     </li>
                 </ul>
             </div>
-            <div id="experiences">
-                <h1 class="title">Experiences</h2>
-                <ul class="experienceParent">
-                    <li class="experienceParent">
-                        <span>人物トラッキングと, 顔認証システムの構築</span>
-                        <ul>
-                            <li>Python3 (Dlib based c++ , LightTrack)</li>
-                        </ul>
+            <div id="publications">
+                <h1 class="title">Publications</h2>
+                <ul class="publicationseParent">
+                    <li class="publicationseParent">
+                        <b>Chihiro Nakatani</b>, Kohei Sendo, Norimichi Ukita
                     </li>
-                    <li class="experienceParent">
-                        <span>人物検知モデルの作成</span>
-                        <ul>
-                            <li>Python3 (Yolov3-spp, ssd, M2Det)</li>
-                        </ul>
+                    <a href="http://www.mva-org.jp/Proceedings/2021/papers/O1-2-2.pdf" target="_blank" rel="noopener noreferrer">
+                        Group Activity Recognition Using Joint Learning of Individual Action Recognition and People Grouping
+                    <a>
+                    <p>
+                        Proc. of the 17th International Conference on Machine Vision Applications (MVA2021), July, 2021. (oral acceptance rate = 18.9%)
+                    </p>
+                </ul>
+                <ul class="publicationseParent">
+                    <li class="publicationseParent">
+                        <b>中谷 千洋</b>, 千藤 滉平, 浮田 宗伯
                     </li>
-                    <li class="experienceParent">
-                        <span>異物検出のモデル作成</span>
-                        <ul>
-                            <li>Python3 (Yolov3)</li>
-                        </ul>
+                        個人行動とグループ構成の同時学習によるグループ行動認識
+                    <p>
+                        情報処理学会研究報告CVIM. 5月. 2021年
+                    </p>
+                </ul>
+            </div>
+            <div id="internships">
+                <h1 class="title">Internships</h2>
+                <ul class="internshipsParent">
+                    <li class="internshipsParent">
+                        <a href="https://optfit.jp/" target="_blank" rel="noopener noreferrer">Opt Fit Corporation<a>
+                        (Aichi Japan; 2020)
                     </li>
-                    <li class="experienceParent">
-                        <span>オセロゲーム開発</span>
-                        <ul>
-                            <li>Python3 (tkinter)</li>
-                        </ul>
+                    <p>ジム管理に関連したwebサービスの開発</p>
+                </ul>
+                <ul class="internshipsParent">
+                    <li class="internshipsParent">
+                        <a href="https://activate-data.com/" target="_blank" rel="noopener noreferrer">Activate Data Corporation<a>
+                        (Aichi Japan; 2019)
                     </li>
-                    <li class="experienceParent">
-                        <span>商品管理ウェブシステムの開発</span>
-                        <ul>
-                            <li>サーバーサイド ...java (playframework)</li>
-                            <li>フロントエンド ... html, css, javascript</li>
-                            <li>データベース   ... postgresql</li>
-                        </ul>
-                    </li>
-
+                    <p>深層学習を用いた画像認識モデルの学習</p>
                 </ul>
             </div>
             <div id="link">
                 <h1 class="title">Link</h2>
-                <p>Qitta ページ... <a href="https://qiita.com/chi-na" target="_blank" rel="noopener noreferrer"><span>https://qiita.com/chi-na</span></a></p>
-                <p>Wantedly ページ... <a href="https://www.wantedly.com/users/113653637" target="_blank" rel="noopener noreferrer"><span>https://www.wantedly.com/users/113653637</span></a></p>
-                <p>Github ページ... <a href="https://github.com/chihina" target="_blank" rel="noopener noreferrer"><span>https://github.com/chihina</span></a></p>
+                <p>LinkedIn page   ...   <a href="https://www.linkedin.com/in/chihiro-nakatani-2060b01a9" target="_blank" rel="noopener noreferrer"><span>link</span></a></p>
             </div>
             <div id="contactme">
                 <h1 class="title">Contact Me</h2>
@@ -151,7 +150,7 @@
                     ご連絡は右のメールボタンからお願い致します。
                     <a class="icon" href="mailto:sd18064@toyota-ti.ac.jp"><i class="fas fa-envelope"></i></a>
                 </p>
-                <p>または, wantedlyのメッセージでも対応可能です。 ページを閲覧頂きありがとうございます。</p>
+                <p>または, LinkedIn　のメッセージでも対応可能です。 ページを閲覧頂きありがとうございます。</p>
             </div>
         </main>
         <footer>
