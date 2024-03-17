@@ -23,7 +23,7 @@ footer {
 }
 
 .title_sub {
-    border-bottom: solid 3px #333333;
+    /* border-bottom: solid 3px #333333; */
     font-size: x-large;
     font-family: 'Caveat', cursive;
 }
