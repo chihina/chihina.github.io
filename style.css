@@ -20,7 +20,12 @@ footer {
 .title {
     border-bottom: double 5px #FFC778;
     font-family: 'Caveat', cursive;
+}
 
+.title_sub {
+    border-bottom: solid 3px #333333;
+    font-size: x-large;
+    font-family: 'Caveat', cursive;
 }
 
 ul.aboutme {
