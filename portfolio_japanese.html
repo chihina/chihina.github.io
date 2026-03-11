@@ -1,521 +1,852 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151344175-3"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中谷 千尋 — Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F6F3EE;
+      --bg-card: #FFFFFF;
+      --text: #1A1A1A;
+      --text-secondary: #5A5A5A;
+      --accent: #2D5A3D;
+      --accent-light: #E8F0EB;
+      --accent-hover: #1E3D2A;
+      --border: #E0DCD6;
+      --border-light: #EDE9E3;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
 
-        gtag('config', 'UA-151344175-3');
-        </script>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        <meta charset="utf-8">
-        <!-- viewport meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    html { scroll-behavior: smooth; }
 
-        <!-- for SEO -->
-        <title>Chihiro Nakatani</title>
-        <meta name="keyword" content="chihiro nakatani, chihiro, nakatani, portfolio, 中谷千洋"> 
-        <meta name="descriprion" 
-        content="this site is portfolio of chihiro nakatani.
-                It shows self introduction and experience of develop.
-                このページは中谷千洋のポートフォリオページです。"
-        > 
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    /* ── Noise Texture Overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
 
-        <!-- for icon -->
-        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(246, 243, 238, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: var(--shadow-sm); }
 
-        <link rel="stylesheet" href="style.css">
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .lang-toggle {
+      font-size: 0.78rem !important;
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    .lang-toggle:hover {
+      background: var(--text);
+      color: var(--bg) !important;
+      border-color: var(--text);
+    }
+    .lang-toggle:hover::after { width: 0 !important; }
 
-        <!-- font -->
-        <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Corben:700" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-                <a class="navbar-brand" href="#top">Chihiro Nakatani</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                        <a class="nav-link" href="#aboutme">About me</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#publications">Publications</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#awards">Awards</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#internships">Internships</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#projessional_activities">Projessional activities</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#link">Link</a>
-                        </li>                    
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./portfolio_english.html">English</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./portfolio_japanese.html">日本語</a>
-                        </li>
-                    </ul>
-                </div> 
-              </nav>
-        </header>
-        <main>
-            <div id="aboutme">
-                <h1 class="title">About me</h1>
-                <ul class="aboutme">
-                    <li class="aboutme">
-                        <img src="imgs/croped_face_2025.jpg" alt="Face", height="100px">
-                    <!-- <a href="https://github.com/chihina" target="_blank" rel="noopener noreferrer"><i class="fab fa-github me_icons"></i></a> -->
-                    <!-- <a href="https://www.linkedin.com/in/chihiro-nakatani-2060b01a9" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin me_icons"></i></a> -->
-                    <!-- <a href="pdfs/cv.pdf" target="_blank"><span style="font-size: x-large;">CV</span></a> -->
-                    </li>
-                    
-                    <li class="aboutme">
-                        <p>
-                           <a href="https://www.toyota-ti.ac.jp/" target="_blank" rel="noopener noreferrer">Toyota Technological Institute (Japan)<a>
-                            の博士学生です．<a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/index-j.html" target="_blank" rel="noopener noreferrer">知能情報メディア研究室<a> 
-                            に所属し，<a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/index-j.html" target="_blank" rel="noopener noreferrer">浮田宗伯教授<a>
-                            の下で研究をしています．(<a href="pdfs/cv.pdf" target="_blank">CV</a>)
-                        </p>
-                        <p>
-                            主な研究実績: joint attention estimation 
-                            (<a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/ICCV2023-PJAE.html" target="_blank" rel="noopener noreferrer">ICCV2023<a>),
-                            group activity feature learning 
-                            (<a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVPR2024-GAFL.html" target="_blank" rel="noopener noreferrer">CVPR2024<a>,
-                            <a href="" target="_blank" rel="noopener noreferrer">CVPR2026<a>,
-                            <a href="" target="_blank" rel="noopener noreferrer">CVIU2026<a>),
-                            people grouping
-                            (<a href="" target="_blank" rel="noopener noreferrer">ICCV2025<a>)
-                        </p>
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s;
+      border-radius: 1px;
+    }
 
-                        <p>
-                            キーワード: Human action understanding; Group activity understanding; AI in sports; Embodied AI.
-                        </p>
+    /* ── Hero ── */
+    .hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 140px 32px 80px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-text h1 {
+      font-family: var(--serif);
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .hero-text h1 span {
+      display: block;
+      font-size: 1.1rem;
+      font-family: var(--sans);
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .hero-text .tagline {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+    .hero-text .tagline strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hero-meta .chip {
+      font-size: 0.78rem;
+      padding: 6px 16px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 20px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .hero-photo {
+      position: relative;
+    }
+    .hero-photo img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 8px -8px -8px 8px;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      z-index: -1;
+      opacity: 0.3;
+    }
 
-                        <p>
-                            <font color="red">
-                                2026年秋博士号取得後の就職先（企業・研究機関）を探しております。 
-                                ご関心をお持ちいただけましたら、お気軽にご連絡ください。
-                            </font>
-                        </p>
-                        <p>
-                            (E-mail: sd23501 [at] toyota-ti.ac.jp or <a href="https://www.linkedin.com/in/chihiro-nakatani-2060b01a9" target="_blank" rel="noopener noreferrer">LinkedIn</a>)
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <div id="educational_experience">
-                <!-- <h1 class="title">Educational experience</h1> -->
-                <h1 class="title">Experience</h1>
-                <ul class="educational_experience">
-                    <li class="abouteducational_experienceme">
-                        2018: 
-                        <a href="https://aichi-asahigaoka.ed.jp/" target="_blank" rel="noopener noreferrer">愛知県立旭丘高等学校</a>
-                        卒業
-                    </li>
-                    <li class="abouteducational_experienceme">
-                        2021: 
-                        <a href="https://www.toyota-ti.ac.jp/" target="_blank" rel="noopener noreferrer">豊田工業大学</a>
-                        工学部先端工学基礎学科 中退（大学院への飛び入学のため）
-                    </li>
-                    <li class="abouteducational_experienceme">
-                        2023: 
-                        <a href="https://www.toyota-ti.ac.jp/" target="_blank" rel="noopener noreferrer">豊田工業大学</a>
-                        大学院修士課程 先端工学専攻 修了（首席）
-                    </li>
-                    <!-- <li class="abouteducational_experienceme"> -->
-                        <!-- 2023-present: 豊田工業大学 大学院博士後期課程 情報援用工学専攻 -->
-                    <!-- </li> -->
-                    <li class="abouteducational_experienceme">
-                        2023/04-2024/03: 
-                        <a href="https://www.toyota-ti.ac.jp/" target="_blank" rel="noopener noreferrer">豊田工業大学</a>
-                        大学院博士後期課程 情報援用工学専攻
-                    </li>
-                    <li class="abouteducational_experienceme">
-                        2024/04-2024/09: 
-                        <a href="https://www.fighters.co.jp/" target="_blank" rel="noopener noreferrer">北海道日本ハムファイターズ</a>
-                        アナリスト長期インターン
-                    </li>
-                    <li class="abouteducational_experienceme">
-                        2024/10-present: 
-                        <a href="https://www.toyota-ti.ac.jp/" target="_blank" rel="noopener noreferrer">豊田工業大学</a>
-                        大学院博士後期課程 情報援用工学専攻
-                    </li>
-                    <li class="abouteducational_experienceme">
-                        2025/04-2025/06: Visitor at
-                        <a href="https://www.idiap.ch/" target="_blank" rel="noopener noreferrer">Idiap Research Institute</a>
-                    </li>
-                    <li class="abouteducational_experienceme">
-                        2026/04-2026/09: 
-                        JSPS Research Fellowship for Young Scientists (DC2)
-                    </li>
-                </ul>
-            </div>
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 24px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.25s;
+      font-family: var(--sans);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(45,90,61,0.25);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      border-color: var(--text);
+      transform: translateY(-1px);
+    }
 
-            <h1 class="title">Publications</h1>
+    /* ── Sections ── */
+    section {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 64px 32px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .section-header h2 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-header .line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
 
-            <div id="publications">
-                <p class="title_sub">Selected Publications</p>
+    /* ── Publications ── */
+    .pub-list { display: flex; flex-direction: column; gap: 20px; }
 
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        Ryuki Tezuka, <b>Chihiro Nakatani</b>, Norimichi Ukita
-                    </li>
-                    <a href="" target="_blank" rel="noopener noreferrer">
-                    Group-DINOmics: Incorporating People Dynamics into DINO for Self-supervised Group Activity Feature Learning
-                    <a>
-                    <p>
-                    Proc. of IEEE Conference on Computer Vision & Pattern Recognition (<b><font color="red">CVPR2026</font></b>) Findings, June, 2026.
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        <b>Chihiro Nakatani</b>, Hiroaki Kawashima, Norimichi Ukita
-                    </li>
-                    <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVIU2026-GAFL.html" target="_blank" rel="noopener noreferrer">
-                    Human-in-the-loop Adaptation in Group Activity Feature Learning for Team Sports Video Retrieval
-                    <a>
-                    <p>
-                    Computer Vision and Image Understanding, vol.263, pp. 104577, 2026. <br>
-                    Special issue on "Computer Vision for Sports and Winter Sports".
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        Kaname Yokoyama, <b>Chihiro Nakatani</b>, Norimichi Ukita
-                    </li>
-                    <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/ICCV2025-new.html" target="_blank" rel="noopener noreferrer">
-                    Dynamic Group Detection using VLM-augmented Temporal Groupness Graph
-                    <a>
-                    <p>
-                    Proc. of IEEE International Conference on Computer Vision (<b><font color="red">ICCV2025</font></b>), Oct., 2025. (acceptance rate = 24.0%)
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        <b>Chihiro Nakatani</b>, Hiroaki Kawashima, Norimichi Ukita
-                    </li>
-                    <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVPR2024-GAFL.html" target="_blank" rel="noopener noreferrer">
-                    Learning Group Activity Features Through Person Attribute Prediction
-                    <a>
-                    <p>
-                    Proc. of IEEE Conference on Computer Vision & Pattern Recognition (<b><font color="red">CVPR2024</font></b>), June, 2024. (acceptance rate = 23.6%)
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        <b>Chihiro Nakatani</b>, Hiroaki Kawashima, Norimichi Ukita
-                    </li>
-                    <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/ICCV2023-PJAE.html" target="_blank" rel="noopener noreferrer">
-                    Interaction-aware Joint Attention Estimation Using People Attributes
-                    <a>
-                    <p>
-                    Proc. of IEEE International Conference on Computer Vision (<b><font color="red">ICCV2023</font></b>), Oct., 2023. (acceptance rate = 26.15%)
-                    </p>
-                </ul>
-            </div>
+    .pub-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .pub-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .pub-item:hover {
+      box-shadow: var(--shadow-md);
+      border-color: transparent;
+      transform: translateX(2px);
+    }
+    .pub-item:hover::before { opacity: 1; }
 
+    .pub-venue {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #fff;
+      background: var(--accent);
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .pub-venue.journal {
+      background: #6B4C9A;
+    }
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      font-weight: 600;
+      line-height: 1.45;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .pub-title a { color: inherit; }
+    .pub-title a:hover { color: var(--accent); }
+    .pub-authors {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .pub-authors strong {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+    }
+    .pub-note {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-style: italic;
+    }
 
-            <!-- <div id="publications"> -->
-                <!-- <p class="title_sub">Selected Publications</p> -->
+    .scholar-link {
+      text-align: center;
+      margin-top: 32px;
+    }
 
-                <!-- <p class="title_sub">International Conference (Peer-reviewed)</p>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        Kaname Yokoyama, <b>Chihiro Nakatani</b>, Norimichi Ukita
-                    </li>
-                    <a href="" target="_blank" rel="noopener noreferrer">
-                    Dynamic Group Detection using VLM-augmented Temporal Groupness Graph
-                    <a>
-                    <p>
-                    Proc. of IEEE International Conference on Computer Vision (<b><font color="red">ICCV2025</font></b>), Oct., 2025. (acceptance rate = 24.0%)
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        <b>Chihiro Nakatani</b>, Hiroaki Kawashima, Norimichi Ukita
-                    </li>
-                    <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVPR2024-GAFL.html" target="_blank" rel="noopener noreferrer">
-                    Learning Group Activity Features Through Person Attribute Prediction
-                    <a>
-                    <p>
-                    Proc. of IEEE Conference on Computer Vision & Pattern Recognition (<b><font color="red">CVPR2024</font></b>), June, 2024. (acceptance rate = 23.6%)
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        <b>Chihiro Nakatani</b>, Hiroaki Kawashima, Norimichi Ukita
-                    </li>
-                    <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/ICCV2023-PJAE.html" target="_blank" rel="noopener noreferrer">
-                    Interaction-aware Joint Attention Estimation Using People Attributes
-                    <a>
-                    <p>
-                    Proc. of IEEE International Conference on Computer Vision (<b><font color="red">ICCV2023</font></b>), Oct., 2023. (acceptance rate = 26.15%)
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        <b>Chihiro Nakatani</b>, Hiroaki Kawashima, Norimichi Ukita
-                    </li>
-                    <a href="https://ieeexplore.ieee.org/document/10215994" target="_blank" rel="noopener noreferrer">
-                        Joint Learning with Group Relation and Individual Action
-                    <a>
-                    <p>
-                        Proc. of the 18th International Conference on Machine Vision Applications (MVA2023), July, 2023. (oral acceptance rate = 16.5%)
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        Daiki Mushiake,  Kentaro Otomo, <b>Chihiro Nakatani</b>, Norimichi Ukita
-                    </li>
-                    <a href="https://ieeexplore.ieee.org/document/10216216" target="_blank" rel="noopener noreferrer">
-                        Shape Preservation in Image Style Transfer for Gaze Estimation
-                    <a>
-                    <p>
-                        Proc. of the 18th International Conference on Machine Vision Applications (MVA2023), July, 2023. (oral acceptance rate = 16.5%)
-                    </p>
-                </ul>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        <b>Chihiro Nakatani</b>, Kohei Sendo, Norimichi Ukita
-                    </li>
-                    <a href="http://www.mva-org.jp/Proceedings/2021/papers/O1-2-2.pdf" target="_blank" rel="noopener noreferrer">
-                        Group Activity Recognition Using Joint Learning of Individual Action Recognition and People Grouping
-                    <a>
-                    <p>
-                        Proc. of the 17th International Conference on Machine Vision Applications (MVA2021), July, 2021. (oral acceptance rate = 18.9%)
-                    </p>
-                </ul>
-            </div>
+    /* ── Awards ── */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .award-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 20px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      transition: all 0.25s;
+    }
+    .award-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .award-year {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 50px;
+      line-height: 1.2;
+    }
+    .award-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+    .award-text a { font-weight: 500; }
 
-            <div id="publications">
-                <p class="title_sub">International Conference (Non Peer-reviewed)</p>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        Goutam Bhat, Martin Danelljan, Radu Timofte, et al. (include <b>Chihiro Nakatani</b>)
-                    </li>
-                    <a href="https://openaccess.thecvf.com/content/CVPR2022W/NTIRE/html/Bhat_NTIRE_2022_Burst_Super-Resolution_Challenge_CVPRW_2022_paper.html" target="_blank" rel="noopener noreferrer">
-                        NTIRE 2022 Burst Super-Resolution Challenge
-                    <a>
-                    <p>
-                        Proc. of New Trends in Image Restoration and Enhancement Workshop (NTIRE2022), CVPR Workshop, June, 2022
-                    </p>
-                </ul>
-            </div>
+    /* ── Experience / Timeline ── */
+    .timeline { position: relative; padding-left: 36px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 7px;
+      bottom: 6px;
+      width: 1.5px;
+      background: linear-gradient(to bottom, var(--accent), var(--border));
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 32px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
 
-            <div id="publications">
-                <p class="title_sub">Domestic Conference (Non Peer-reviewed)</p>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        平野将三朗, <b>中谷千洋</b>, 浮田宗伯
-                    </li>
-                    <a href="" target="_blank" rel="noopener noreferrer">
-                        物体の相対的位置関係を用いた複数物体追跡
-                    <a>
-                    <p>
-                        MIRU, 7月, 2025年
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        横山要, <b>中谷千洋</b>, 浮田宗伯
-                    </li>
-                    <a href="" target="_blank" rel="noopener noreferrer">
-                        視覚言語モデルによる画像の意味理解を考慮した動的グループ検出
-                    <a>
-                    <p>
-                        MIRU, 7月, 2025年
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        手塚龍希, <b>中谷千洋</b>, 浮田宗伯
-                    </li>
-                    <a href="" target="_blank" rel="noopener noreferrer">
-                        DINOv2は複雑な複数人の相互作用を理解しているか？
-                    <a>
-                    <p>
-                        MIRU, 7月, 2025年
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        平野将三朗, <b>中谷千洋</b>, 浮田宗伯
-                    </li>
-                    <a href="" target="_blank" rel="noopener noreferrer">
-                        物体の相対的位置関係を用いた複数物体追跡
-                    <a>
-                    <p>
-                        情報処理学会研究報告CVIM, 5月, 2025年
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        横山要, <b>中谷千洋</b>, 浮田宗伯
-                    </li>
-                    <a href="" target="_blank" rel="noopener noreferrer">
-                        視覚言語モデルによる画像の意味理解を考慮した動的グループ検出
-                    <a>
-                    <p>
-                        情報処理学会研究報告CVIM, 5月, 2025年
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        山下陽平, <b>中谷千洋</b>, 浮田宗伯
-                    </li>
-                    <a href="https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&page_id=13&block_id=8&item_id=213545&item_no=1" target="_blank" rel="noopener noreferrer">
-                        服寸法に基づくサイズ可変仮想試着
-                    <a>
-                    <p>
-                        情報処理学会研究報告CVIM, 3月, 2023年
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        <b>中谷千洋</b>, 川嶋宏彰, 浮田宗伯
-                    </li>
-                    <a href="https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&page_id=13&block_id=8&item_id=213545&item_no=1" target="_blank" rel="noopener noreferrer">
-                        スポーツ映像における視線集中を利用したボール検出
-                    <a>
-                    <p>
-                        情報処理学会研究報告CVIM, 11月, 2021年
-                    </p>
-                </ul>
-                <ul class="publicationseParent">
-                    <li class="publicationseParent">
-                        <b>中谷千洋</b>, 千藤滉平, 浮田宗伯
-                    </li>
-                    <a href="https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&page_id=13&block_id=8&item_id=211120&item_no=1" target="_blank" rel="noopener noreferrer">
-                        個人行動とグループ構成の同時学習によるグループ行動認識
-                    <a>
-                    <p>
-                        情報処理学会研究報告CVIM, 5月, 2021年
-                    </p>
-                </ul>                
-            </div> -->
-            <p> その他の業績については
-                <a href="https://scholar.google.com/citations?user=StlST64AAAAJ" target="_blank" rel="noopener noreferrer">google scholar<a> 
-                をご覧ください．
-            </p>
-            
-            <div id="awards">
-                <h1 class="title">Awards</h1>
-                <ul class="awardsParent">
-                    <li class="awardsParent">
-                        <a href="https://kyotovision.github.io/2025-kyoto_workshop/" target="_blank" rel="noopener noreferrer">
-                            <p>JST ASPIRE Kyoto Workshop Poster Award. (2025年度)</p>
-                        </a>
-                    </li>
-                    <li class="awardsParent">
-                        <a href="https://www.taf.or.jp/files/2131/1314208804.pdf" target="_blank" rel="noopener noreferrer">
-                            <p>電気通信普及財団海外渡航旅費援助. (2024年度)</p>
-                        </a>
-                    </li>
-                    <li class="awardsParent">
-                        <a href="https://ieee-jp.org/section/nagoya/2024/04/11/2024%e5%b9%b4-ieee%e5%90%8d%e5%8f%a4%e5%b1%8b%e6%94%af%e9%83%a8%e5%9b%bd%e9%9a%9b%e4%bc%9a%e8%ad%b0%e7%a0%94%e7%a9%b6%e7%99%ba%e8%a1%a8%e8%b3%9e%e5%8f%97%e8%b3%9e%e8%80%85/" target="_blank" rel="noopener noreferrer">
-                            <p>IEEE名古屋支部国際会議研究発表賞. (2024年度)</p>
-                        </a>
-                    </li>
-                    <li class="awardsParent">
-                        <a href="https://www.tateisi-f.org/news/2023-09-29" target="_blank" rel="noopener noreferrer">
-                            <p>立石科学技術振興財団国際交流助成. (2023年度)</p>
-                        </a>
-                    </li>
-                    <li class="awardsParent">
-                        <p>豊秋奨学会奨学生. (2023年度-2026年度)</p>
-                    </li>
-                    <li class="awardsParent">
-                        <p>豊田工業大学大学院博士後期課程奨学金奨学生. (2023年度-2026年度)</p>
-                    </li>
-                    <li class="awardsParent">
-                        <p>SICE優秀学生賞. (3月. 2023年)</p>
-                    </li>
-                    <li class="awardsParent">
-                        <p>豊田奨学基金給付奨学生. (2018年度-2021年度)</p>
-                    </li>
-                </ul>
-            </div>
-            <div id="internships">
-                <h1 class="title">Work Experience</h1>
-                <ul class="internshipsParent">
-                    <li class="internshipsParent">
-                        <a href="https://playbox.co.jp/" target="_blank" rel="noopener noreferrer">Playbox (Machine Learning Engineer)<a>,
-                        <a href="https://playbox.co.jp/posts/action-spotting/" target="_blank" rel="noopener noreferrer">Tech blog</a>
-                        </li>
-                    <p>Remote; 2025.</p>
-                </ul>
-                <ul class="internshipsParent">
-                    <li class="internshipsParent">
-                        <a href="https://www.fighters.co.jp/" target="_blank" rel="noopener noreferrer">Hokkaido Nippon-Ham Fighters (Analyst)<a>
-                    </li>
-                    <p>Hokkaido Japan; 2024/04-2024/09. Long-term internship</p>
-                    <!-- <p>トラッキングデータを用いた守備解析</p> -->
-                </ul>
-                <ul class="internshipsParent">
-                    <li class="internshipsParent">
-                        <a href="https://optfit.jp/" target="_blank" rel="noopener noreferrer">OptFit Corporation (Server Side Engineer)<a>
-                    </li>
-                    <!-- <p>Aichi Japan; 2020. Part-time job</p> -->
-                    <p>Remote; 2020. Part-time job</p>
-                    <!-- <p>ジム管理に関連したwebサービスの開発</p> -->
-                </ul>
-                <ul class="internshipsParent">
-                    <li class="internshipsParent">
-                        <a href="https://activate-data.com/" target="_blank" rel="noopener noreferrer">Activate Data Corporation (Machine Learning Engineer)<a>
-                    </li>
-                    <p>Remote; 2019. Part-time job</p>
-                    <!-- <p>Aichi Japan; 2019. Part-time job</p> -->
-                    <!-- <p>深層学習を用いた画像認識モデルの学習</p> -->
-                </ul>
-            </div>
-            <div id="projessional_activities">
-                <h1 class="title">Projessional activities</h1>
-                <ul class="proActParent">
-                    <li class="proActParent">
-                        Reviewer: CVPR2024, 2025, 2026
-                    </li>
-                    <li class="proActParent">
-                        Reviewer: ICCV2025
-                    </li>
-                    <li class="proActParent">
-                        Reviewer: ICMI2025
-                    </li>
-                </ul>
-            </div>
-            <!-- <div id="link"> -->
-                <!-- <h1 class="title">Link</h1> -->
-                <!-- <p><a href="https://github.com/chihina" target="_blank" rel="noopener noreferrer"><span>Github</span></a></p> -->
-                <!-- <p><a href="https://www.linkedin.com/in/chihiro-nakatani-2060b01a9" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span></a></p> -->
-                <!-- <p><a href="https://scholar.google.com/citations?user=StlST64AAAAJ" target="_blank" rel="noopener noreferrer"><span>Google Scholar</span></a></p> -->
-            <!-- </div> -->
-        </main>
-        <footer>
-            <div style="text-align: center;">
-                <p>Chihiro Nakatani</p>
-                <small>&copy; Chihiro Nakatani 2021</small>
-            </div>
-        </footer>
-    </body>
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 6px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2.5px solid var(--accent);
+      z-index: 1;
+    }
+    .timeline-item.current::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-light);
+    }
+    .timeline-date {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .timeline-content {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .timeline-content small {
+      display: block;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      margin-top: 2px;
+    }
+
+    /* ── Work Experience ── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .work-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      transition: all 0.25s;
+    }
+    .work-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .work-card h4 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .work-card .role {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .work-card .details {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ── Professional Activities ── */
+    .activities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .activity-tag {
+      padding: 8px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .activity-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 48px 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-left {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .footer-right {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 110px;
+        padding-bottom: 48px;
+      }
+      .hero-text h1 { font-size: 2.6rem; }
+      .hero-photo { max-width: 240px; order: -1; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(246,243,238,0.97);
+        backdrop-filter: blur(16px);
+        padding: 20px 32px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      .hamburger { display: flex; }
+      section { padding: 48px 20px; }
+      .section-header h2 { font-size: 1.8rem; }
+      .awards-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr; }
+      footer { padding: 32px 20px; }
+      .pub-item { padding: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 { font-size: 2.1rem; }
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">C. Nakatani</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#experience">学歴</a>
+      <a href="#publications">業績</a>
+      <a href="#awards">受賞</a>
+      <a href="#work">職歴</a>
+      <a href="https://chihina.github.io/portfolio_english.html" class="lang-toggle">English</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="hero-text fade-up">
+    <h1>
+      <span>博士学生 · コンピュータビジョン</span>
+      Chihiro Nakatani
+    </h1>
+    <p class="tagline">
+      <strong><a href="https://www.toyota-ti.ac.jp/">豊田工業大学</a></strong> 大学院博士後期課程に在籍し、<a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/index-j.html">知能情報メディア研究室</a>にて<a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/index-j.html">浮田宗伯教授</a>の指導の下で研究を行っています。
+      <strong>CVPR</strong>・<strong>ICCV</strong> 等のトップ国際会議に<strong>筆頭著者</strong>として論文を発表しています。
+    </p>
+    <p style="font-size:0.95rem; color:var(--accent); font-weight:600; margin-bottom:4px;">2026年秋 博士号取得予定 — 就職先を探しています</p>
+    <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:20px;">ご関心をお持ちいただけましたら、お気軽にご連絡ください。</p>
+    <div class="hero-cta">
+      <a href="mailto:sd23501@toyota-ti.ac.jp" class="btn btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <a href="https://www.linkedin.com/in/chihiro-nakatani-2060b01a9" class="btn btn-outline" target="_blank">LinkedIn →</a>
+      <a href="https://chihina.github.io/pdfs/cv.pdf" class="btn btn-outline">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        CV
+      </a>
+      <a href="https://scholar.google.com/citations?user=StlST64AAAAJ" class="btn btn-outline" target="_blank">
+        Google Scholar →
+      </a>
+    </div>
+    <div class="hero-meta" style="margin-top:20px;">
+      <span class="chip">Group Activity Understanding</span>
+      <span class="chip">Action Recognition</span>
+      <span class="chip">AI in Sports</span>
+      <span class="chip">Embodied AI</span>
+    </div>
+  </div>
+    <img src="https://chihina.github.io/imgs/croped_face_2025.jpg" alt="Chihiro Nakatani" loading="lazy">
+  </div>
+</header>
+
+<!-- 学歴 -->
+<section id="experience">
+  <div class="section-header fade-up">
+    <h2>学歴</h2>
+    <div class="line"></div>
+  </div>
+  <div class="timeline fade-up">
+    <div class="timeline-item current">
+      <div class="timeline-date">2024/10 – 現在</div>
+      <div class="timeline-content">
+        <a href="https://www.toyota-ti.ac.jp/">豊田工業大学</a> 大学院博士後期課程 情報援用工学専攻
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2025/04 – 2025/06</div>
+      <div class="timeline-content">
+        <a href="https://www.idiap.ch/">Idiap Research Institute</a> 訪問研究員
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2024/04 – 2024/09</div>
+      <div class="timeline-content">
+        <a href="https://www.fighters.co.jp/">北海道日本ハムファイターズ</a> アナリスト長期インターン
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2023/04 – 2024/03</div>
+      <div class="timeline-content">
+        <a href="https://www.toyota-ti.ac.jp/">豊田工業大学</a> 大学院博士後期課程 情報援用工学専攻
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2021 – 2023</div>
+      <div class="timeline-content">
+        <a href="https://www.toyota-ti.ac.jp/">豊田工業大学</a> 大学院修士課程 先端工学専攻 修了
+        <small>首席</small>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2018 – 2021</div>
+      <div class="timeline-content">
+        <a href="https://www.toyota-ti.ac.jp/">豊田工業大学</a> 工学部先端工学基礎学科 中退
+        <small>大学院への飛び入学のため</small>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">– 2018</div>
+      <div class="timeline-content">
+        <a href="https://aichi-asahigaoka.ed.jp/">愛知県立旭丘高等学校</a> 卒業
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Publications -->
+<section id="publications">
+  <div class="section-header fade-up">
+    <h2>業績（主要論文）</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="pub-list">
+    <div class="pub-item fade-up">
+      <span class="pub-venue">CVPR 2026 Findings</span>
+      <div class="pub-title">Group-DINOmics: Incorporating People Dynamics into DINO for Self-supervised Group Activity Feature Learning</div>
+      <div class="pub-authors">Ryuki Tezuka, <strong>Chihiro Nakatani</strong>, Norimichi Ukita</div>
+      <div class="pub-note">Proc. of IEEE Conference on Computer Vision &amp; Pattern Recognition, June 2026.</div>
+    </div>
+
+    <div class="pub-item fade-up">
+      <span class="pub-venue journal">CVIU 2026</span>
+      <div class="pub-title"><a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVIU2026-GAFL.html">Human-in-the-loop Adaptation in Group Activity Feature Learning for Team Sports Video Retrieval</a></div>
+      <div class="pub-authors"><strong>Chihiro Nakatani</strong>, Hiroaki Kawashima, Norimichi Ukita</div>
+      <div class="pub-note">Computer Vision and Image Understanding, vol.263, pp. 104577, 2026. Special issue on "Computer Vision for Sports and Winter Sports".</div>
+    </div>
+
+    <div class="pub-item fade-up">
+      <span class="pub-venue">ICCV 2025</span>
+      <div class="pub-title"><a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/ICCV2025-new.html">Dynamic Group Detection using VLM-augmented Temporal Groupness Graph</a></div>
+      <div class="pub-authors">Kaname Yokoyama, <strong>Chihiro Nakatani</strong>, Norimichi Ukita</div>
+      <div class="pub-note">Proc. of IEEE International Conference on Computer Vision, Oct. 2025. (acceptance rate = 24.0%)</div>
+    </div>
+
+    <div class="pub-item fade-up">
+      <span class="pub-venue">CVPR 2024</span>
+      <div class="pub-title"><a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVPR2024-GAFL.html">Learning Group Activity Features Through Person Attribute Prediction</a></div>
+      <div class="pub-authors"><strong>Chihiro Nakatani</strong>, Hiroaki Kawashima, Norimichi Ukita</div>
+      <div class="pub-note">Proc. of IEEE Conference on Computer Vision &amp; Pattern Recognition, June 2024. (acceptance rate = 23.6%)</div>
+    </div>
+
+    <div class="pub-item fade-up">
+      <span class="pub-venue">ICCV 2023</span>
+      <div class="pub-title"><a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/ICCV2023-PJAE.html">Interaction-aware Joint Attention Estimation Using People Attributes</a></div>
+      <div class="pub-authors"><strong>Chihiro Nakatani</strong>, Hiroaki Kawashima, Norimichi Ukita</div>
+      <div class="pub-note">Proc. of IEEE International Conference on Computer Vision, Oct. 2023. (acceptance rate = 26.15%)</div>
+    </div>
+  </div>
+
+  <div class="scholar-link fade-up">
+    <a href="https://scholar.google.com/citations?user=StlST64AAAAJ" class="btn btn-outline" target="_blank">その他の業績は Google Scholar をご覧ください →</a>
+  </div>
+</section>
+
+<!-- Awards -->
+<section id="awards">
+  <div class="section-header fade-up">
+    <h2>受賞・助成</h2>
+    <div class="line"></div>
+  </div>
+  <div class="awards-grid">
+    <div class="award-item fade-up">
+      <div class="award-year">2026</div>
+      <div class="award-text">日本学術振興会 特別研究員 (DC2)</div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-year">2025</div>
+      <div class="award-text"><a href="https://kyotovision.github.io/2025-kyoto_workshop/">JST ASPIRE Kyoto Workshop Poster Award</a></div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-year">2024</div>
+      <div class="award-text"><a href="https://www.taf.or.jp/files/2131/1314208804.pdf">電気通信普及財団 海外渡航旅費援助</a></div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-year">2024</div>
+      <div class="award-text"><a href="https://ieee-jp.org/section/nagoya/2024/04/11/2024%e5%b9%b4-ieee%e5%90%8d%e5%8f%a4%e5%b1%8b%e6%94%af%e9%83%a8%e5%9b%bd%e9%9a%9b%e4%bc%9a%e8%ad%b0%e7%a0%94%e7%a9%b6%e7%99%ba%e8%a1%a8%e8%b3%9e%e5%8f%97%e8%b3%9e%e8%80%85/">IEEE名古屋支部 国際会議研究発表賞</a></div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-year">2024</div>
+      <div class="award-text"><a href="https://www.tateisi-f.org/news/2023-09-29">立石科学技術振興財団 国際交流助成</a></div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-year">2023</div>
+      <div class="award-text">SICE優秀学生賞</div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-year">2023</div>
+      <div class="award-text">豊秋奨学会 奨学生（2023–2026年度）</div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-year">2018</div>
+      <div class="award-text">豊田奨学基金 給付奨学生（2018–2021年度）</div>
+    </div>
+  </div>
+</section>
+
+<!-- Work Experience -->
+<section id="work">
+  <div class="section-header fade-up">
+    <h2>職歴</h2>
+    <div class="line"></div>
+  </div>
+  <div class="work-grid">
+    <div class="work-card fade-up">
+      <h4><a href="https://playbox.co.jp/">Playbox</a></h4>
+      <div class="role">機械学習エンジニア</div>
+      <div class="details">リモート、2025年 · <a href="https://playbox.co.jp/posts/action-spotting/">Tech blog</a></div>
+    </div>
+    <div class="work-card fade-up">
+      <h4><a href="https://www.fighters.co.jp/">北海道日本ハムファイターズ</a></h4>
+      <div class="role">アナリスト</div>
+      <div class="details">北海道 · 2024/04–2024/09 · 長期インターン</div>
+    </div>
+    <div class="work-card fade-up">
+      <h4><a href="https://optfit.jp/">OptFit株式会社</a></h4>
+      <div class="role">サーバーサイドエンジニア</div>
+      <div class="details">リモート、2020年 · アルバイト</div>
+    </div>
+    <div class="work-card fade-up">
+      <h4><a href="https://activate-data.com/">株式会社Activate Data</a></h4>
+      <div class="role">機械学習エンジニア</div>
+      <div class="details">リモート、2019年 · アルバイト</div>
+    </div>
+  </div>
+</section>
+
+<!-- Professional Activities -->
+<section id="activities">
+  <div class="section-header fade-up">
+    <h2>学術活動</h2>
+    <div class="line"></div>
+  </div>
+  <div class="activities fade-up">
+    <span class="activity-tag">Reviewer: CVPR 2024</span>
+    <span class="activity-tag">Reviewer: CVPR 2025</span>
+    <span class="activity-tag">Reviewer: CVPR 2026</span>
+    <span class="activity-tag">Reviewer: ICCV 2025</span>
+    <span class="activity-tag">Reviewer: ICMI 2025</span>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">Chihiro Nakatani</div>
+  <div class="footer-right">© 2026 Chihiro Nakatani</div>
+</footer>
+
+<script>
+  // Scroll shadow on nav
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Intersection Observer for fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
 </html>
