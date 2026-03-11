@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://chihina.github.io/portfolio_english.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chihina.github.io/portfolio_english.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chihina.github.io/portfolio_japanese.html"/>
+    <lastmod>2026-03-11</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://chihina.github.io/portfolio_japanese.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chihina.github.io/portfolio_english.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chihina.github.io/portfolio_japanese.html"/>
+    <lastmod>2026-03-11</lastmod>
+    <priority>1.0</priority>
+  </url>
+</urlset>
