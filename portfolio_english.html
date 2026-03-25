@@ -405,6 +405,13 @@
       margin-top: 4px;
       font-style: italic;
     }
+    .pub-collab-note {
+      color: #c62828;
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-top: 6px;
+      margin-bottom: 2px;
+    }
 
     .scholar-link {
       text-align: center;
@@ -746,42 +753,7 @@
     <div class="line"></div>
   </div>
 
-  <div class="pub-list">
-    <div class="pub-item fade-up">
-      <span class="pub-venue">CVPR 2026 Findings</span>
-      <div class="pub-title">Group-DINOmics: Incorporating People Dynamics into DINO for Self-supervised Group Activity Feature Learning</div>
-      <div class="pub-authors">Ryuki Tezuka, <strong>Chihiro Nakatani</strong>, Norimichi Ukita</div>
-      <div class="pub-note">Proc. of IEEE Conference on Computer Vision &amp; Pattern Recognition, June 2026.</div>
-    </div>
-
-    <div class="pub-item fade-up">
-      <span class="pub-venue journal">CVIU 2026</span>
-      <div class="pub-title"><a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVIU2026-GAFL.html">Human-in-the-loop Adaptation in Group Activity Feature Learning for Team Sports Video Retrieval</a></div>
-      <div class="pub-authors"><strong>Chihiro Nakatani</strong>, Hiroaki Kawashima, Norimichi Ukita</div>
-      <div class="pub-note">Computer Vision and Image Understanding, vol.263, pp. 104577, 2026. Special issue on "Computer Vision for Sports and Winter Sports".</div>
-    </div>
-
-    <div class="pub-item fade-up">
-      <span class="pub-venue">ICCV 2025</span>
-      <div class="pub-title"><a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/ICCV2025-new.html">Dynamic Group Detection using VLM-augmented Temporal Groupness Graph</a></div>
-      <div class="pub-authors">Kaname Yokoyama, <strong>Chihiro Nakatani</strong>, Norimichi Ukita</div>
-      <div class="pub-note">Proc. of IEEE International Conference on Computer Vision, Oct. 2025. (acceptance rate = 24.0%)</div>
-    </div>
-
-    <div class="pub-item fade-up">
-      <span class="pub-venue">CVPR 2024</span>
-      <div class="pub-title"><a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVPR2024-GAFL.html">Learning Group Activity Features Through Person Attribute Prediction</a></div>
-      <div class="pub-authors"><strong>Chihiro Nakatani</strong>, Hiroaki Kawashima, Norimichi Ukita</div>
-      <div class="pub-note">Proc. of IEEE Conference on Computer Vision &amp; Pattern Recognition, June 2024. (acceptance rate = 23.6%)</div>
-    </div>
-
-    <div class="pub-item fade-up">
-      <span class="pub-venue">ICCV 2023</span>
-      <div class="pub-title"><a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/ICCV2023-PJAE.html">Interaction-aware Joint Attention Estimation Using People Attributes</a></div>
-      <div class="pub-authors"><strong>Chihiro Nakatani</strong>, Hiroaki Kawashima, Norimichi Ukita</div>
-      <div class="pub-note">Proc. of IEEE International Conference on Computer Vision, Oct. 2023. (acceptance rate = 26.15%)</div>
-    </div>
-  </div>
+  <div id="publications-shared-list" class="pub-list"></div>
 
   <div class="scholar-link fade-up">
     <a href="https://scholar.google.com/citations?user=StlST64AAAAJ" class="btn btn-outline" target="_blank">See all publications on Google Scholar →</a>
@@ -881,7 +853,21 @@
   <div class="footer-right">© 2026 Chihiro Nakatani</div>
 </footer>
 
+<script src="./publications_shared.js"></script>
 <script>
+  function loadSharedPublications() {
+    const publicationsContainer = document.getElementById('publications-shared-list');
+    if (!publicationsContainer) return;
+
+    if (typeof window.sharedPublicationsHtml === 'string' && window.sharedPublicationsHtml.length > 0) {
+      publicationsContainer.innerHTML = window.sharedPublicationsHtml;
+    } else {
+      publicationsContainer.innerHTML = '<p class="pub-note">Failed to load publications.</p>';
+      console.error('shared publications script was not loaded.');
+    }
+  }
+
+  function initializePageInteractions() {
   // Scroll shadow on nav
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
@@ -905,6 +891,10 @@
       document.querySelector('.nav-links').classList.remove('open');
     });
   });
+  }
+
+  loadSharedPublications();
+  initializePageInteractions();
 </script>
 
 </body>
