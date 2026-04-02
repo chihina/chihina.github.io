@@ -1,7 +1,7 @@
 window.sharedPublicationsHtml = `
 <div class="pub-item fade-up">
   <span class="pub-venue">CVPR 2026 Workshop on Eye and Gaze in Computer Vision (GAZE 2026)</span>
-  <div class="pub-title">End-to-End Shared Attention Estimation via Group Detection with Feedback Refinement</div>
+  <div class="pub-title"><a href="https://chihina.github.io/sagd-CVPRW2026-page/">End-to-End Shared Attention Estimation via Group Detection with Feedback Refinement</a></div>
   <div class="pub-authors"><strong>Chihiro Nakatani</strong>, Norimichi Ukita, Jean-Marc Odobez</div>
   <div class="pub-collab-note">In collaboration with Prof. Jean-Marc Odobez (Idiap Research Institute / EPFL)</div>
   <div class="pub-note">Proc. of IEEE Conference on Computer Vision &amp; Pattern Recognition, June 2026.</div>
