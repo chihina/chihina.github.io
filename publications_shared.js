@@ -9,7 +9,7 @@ window.sharedPublicationsHtml = `
 
 <div class="pub-item fade-up">
   <span class="pub-venue">CVPR 2026 Findings</span>
-  <div class="pub-title">Group-DINOmics: Incorporating People Dynamics into DINO for Self-supervised Group Activity Feature Learning</div>
+  <div class="pub-title"><a href="https://chihina.github.io/gafl-CVPRF2026-page/">Group-DINOmics: Incorporating People Dynamics into DINO for Self-supervised Group Activity Feature Learning</a></div>
   <div class="pub-authors">Ryuki Tezuka, <strong>Chihiro Nakatani</strong>, Norimichi Ukita</div>
   <div class="pub-note">Proc. of IEEE Conference on Computer Vision &amp; Pattern Recognition, June 2026.</div>
 </div>
