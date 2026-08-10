@@ -239,20 +239,42 @@
       color: var(--text);
       font-weight: 600;
     }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .hero-focus {
+      list-style: none;
+      max-width: 540px;
+      margin: -14px 0 18px;
+      display: grid;
+      gap: 7px;
     }
-    .hero-meta .chip {
-      font-size: 0.78rem;
-      padding: 6px 16px;
-      background: var(--accent-light);
-      color: var(--accent);
-      border-radius: 20px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+    .hero-focus li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
     }
+    .hero-focus li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .hero-focus strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .hero-note {
+      max-width: 540px;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .hero-note strong { color: var(--text); font-weight: 600; }
     .hero-photo {
       position: relative;
     }
@@ -671,9 +693,16 @@
     </h1>
     <p class="tagline">
       <strong><a href="https://www.toyota-ti.ac.jp/">豊田工業大学</a></strong> 大学院博士後期課程に在籍し、<a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/index-j.html">知能情報メディア研究室</a>にて<a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/index-j.html">浮田宗伯教授</a>の指導の下で研究を行っています。
-      映像からの人間の集団行動理解をテーマに研究をしています。
-      <strong>CVPR</strong>・<strong>ICCV</strong> 等のトップ国際会議に<strong>筆頭著者</strong>として論文を発表しています。
-      所属研究室外では、スイス <a href="https://www.idiap.ch/">Idiap Research Institute</a> にて Jean-Marc Odobez 教授（Idiap/EPFL）のもと訪問研究員を経験し、<a href="https://www.fighters.co.jp/">北海道日本ハムファイターズ</a> でアナリストインターン（フルタイム）も経験しました。
+      映像を<strong>個人ではなく集団の単位</strong>で理解することを目指しています。
+    </p>
+    <ul class="hero-focus">
+      <li><strong>誰が集団を成すか</strong> — 集団検出</li>
+      <li><strong>その集団が何をしているか</strong> — 集団行動の表現学習</li>
+      <li><strong>どこを共に見ているか</strong> — 共同注意の推定</li>
+    </ul>
+    <p class="hero-note">
+      行動ラベルを網羅的に与えずに学習し、チームスポーツ映像やエージェントへの応用を目指しています。<br>
+      <strong>CVPR</strong>・<strong>ICCV</strong>・<strong>CVIU</strong> に<strong>筆頭著者</strong>論文として発表。
     </p>
     <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:20px;">ご関心をお持ちいただけましたら、お気軽にご連絡ください。</p>
     <div class="hero-cta">

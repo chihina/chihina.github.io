@@ -239,20 +239,42 @@
       color: var(--text);
       font-weight: 600;
     }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .hero-focus {
+      list-style: none;
+      max-width: 540px;
+      margin: -14px 0 18px;
+      display: grid;
+      gap: 7px;
     }
-    .hero-meta .chip {
-      font-size: 0.78rem;
-      padding: 6px 16px;
-      background: var(--accent-light);
-      color: var(--accent);
-      border-radius: 20px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+    .hero-focus li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
     }
+    .hero-focus li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .hero-focus strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .hero-note {
+      max-width: 540px;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .hero-note strong { color: var(--text); font-weight: 600; }
     .hero-photo {
       position: relative;
     }
@@ -671,9 +693,16 @@
     </h1>
     <p class="tagline">
       Ph.D student at <strong>Toyota Technological Institute</strong>, advised by Prof. <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/index-j.html">Norimichi Ukita</a> at <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/index-j.html">IIM Lab</a>.
-      My research focuses on understanding collective human behavior from video — with applications in sports AI and embodied agents.
-      I have published <strong>first-author</strong> papers at <strong>CVPR</strong> and <strong>ICCV</strong>.
-      Beyond my home lab, I have been a visiting researcher at <a href="https://www.idiap.ch/">Idiap Research Institute</a> (Switzerland) with Prof. Jean-Marc Odobez (Idiap/EPFL), and a full-time analyst intern at the <a href="https://www.fighters.co.jp/">Hokkaido Nippon-Ham Fighters</a> baseball team.
+      I make video understandable at the level of <strong>groups, not individuals</strong>.
+    </p>
+    <ul class="hero-focus">
+      <li><strong>Who forms a group</strong> — group detection</li>
+      <li><strong>What they are doing</strong> — group activity representation</li>
+      <li><strong>Where they look</strong> — joint attention estimation</li>
+    </ul>
+    <p class="hero-note">
+      Learned without exhaustive activity labels, for team sports footage and embodied agents.<br>
+      <strong>First-author</strong> papers at <strong>CVPR</strong>, <strong>ICCV</strong>, and <strong>CVIU</strong>.
     </p>
     <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:20px;">Please feel free to reach out.</p>
     <div class="hero-cta">
