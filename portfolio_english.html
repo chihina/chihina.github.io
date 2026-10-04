@@ -480,6 +480,27 @@
     }
     .award-text a { font-weight: 500; }
 
+    /* ── News ── */
+    .news-list { list-style: none; }
+    .news-item {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .news-item:first-child { padding-top: 0; }
+    .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .news-date {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      padding-top: 2px;
+    }
+
     /* ── Experience / Timeline ── */
     .timeline { position: relative; padding-left: 36px; }
     .timeline::before {
@@ -653,6 +674,7 @@
       .work-grid { grid-template-columns: 1fr; }
       footer { padding: 32px 20px; }
       .pub-item { padding: 20px; }
+      .news-item { grid-template-columns: 1fr; gap: 2px; }
     }
 
     @media (max-width: 480px) {
@@ -672,6 +694,7 @@
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links">
+      <a href="#news">News</a>
       <a href="#education">Education</a>
       <a href="#publications">Publications</a>
       <a href="#awards">Awards</a>
@@ -713,6 +736,40 @@
   </div>
     <img src="https://chihina.github.io/imgs/croped_face_2025.png" alt="Chihiro Nakatani" style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 </header>
+
+<!-- News -->
+<section id="news">
+  <div class="section-header fade-up">
+    <h2>News</h2>
+    <div class="line"></div>
+  </div>
+  <ul class="news-list fade-up">
+    <li class="news-item">
+      <span class="news-date">2026/09</span>
+      <span>Received my Ph.D. in Engineering.</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">2026/06</span>
+      <span>Presented papers at <a href="https://chihina.github.io/gafl-CVPRF2026-page/">CVPR 2026 Findings</a> and the <a href="https://chihina.github.io/sagd-CVPRW2026-page/">CVPR 2026 Workshop (GAZE 2026)</a>.</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">2026/05</span>
+      <span>Started a long-term internship as an AI Research Engineer at <a href="https://www.sportip.jp/">Sportip</a> (until 2026/07).</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">2026/04</span>
+      <span>Awarded the JSPS Research Fellowship for Young Scientists (DC2).</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">2025/10</span>
+      <span>Presented a paper at ICCV 2025.</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">2025/04</span>
+      <span>Started a research visit at <a href="https://www.idiap.ch/">Idiap Research Institute</a>, Switzerland (until 2025/06).</span>
+    </li>
+  </ul>
+</section>
 
 <!-- Education -->
 <section id="education">
@@ -867,7 +924,7 @@
 <!-- Footer -->
 <footer>
   <div class="footer-left">Chihiro Nakatani</div>
-  <div class="footer-right">© 2026 Chihiro Nakatani</div>
+  <div class="footer-right">Last updated: October 4, 2026 · © 2026 Chihiro Nakatani</div>
 </footer>
 
 <script src="./publications_shared.js"></script>
