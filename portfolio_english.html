@@ -229,42 +229,12 @@
       color: var(--text);
       font-weight: 600;
     }
-    .hero-focus {
-      list-style: none;
-      max-width: 540px;
-      margin: -14px 0 18px;
-      display: grid;
-      gap: 7px;
-    }
-    .hero-focus li {
-      position: relative;
-      padding-left: 18px;
+    .hero-credential {
       font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--text-secondary);
+      font-weight: 500;
+      color: var(--accent);
+      margin: -8px 0 20px;
     }
-    .hero-focus li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.6em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-    .hero-focus strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-    .hero-note {
-      max-width: 540px;
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--text-secondary);
-      margin-bottom: 24px;
-    }
-    .hero-note strong { color: var(--text); font-weight: 600; }
     .hero-photo {
       position: relative;
     }
@@ -668,17 +638,12 @@
     <h1>
       Chihiro Nakatani
     </h1>
+    <p class="hero-credential">Ph.D. in Engineering / Computer Vision, Group Behavior Understanding</p>
     <p class="tagline">
-      Received my <strong>Ph.D. in Engineering</strong> in September 2026.
-      I aim to understand human behavior at the level of <strong>groups, not individuals</strong> — in video and beyond.
+      Received a <strong>Ph.D. in Engineering</strong> from <a href="https://www.toyota-ti.ac.jp/">Toyota Technological Institute</a> in 2026. During the doctoral program, served as a JSPS Research Fellow (DC2), a visiting researcher at the <a href="https://www.idiap.ch/">Idiap Research Institute</a> in Switzerland, and a sport analyst at the <a href="https://www.fighters.co.jp/">Hokkaido Nippon-Ham Fighters</a>.
     </p>
-    <ul class="hero-focus">
-      <li><strong>Who forms a group</strong> — group detection</li>
-      <li><strong>What they are doing</strong> — group activity representation</li>
-      <li><strong>Where they look</strong> — joint attention estimation</li>
-    </ul>
-    <p class="hero-note">
-      <strong>First-author</strong> papers at <strong>CVPR</strong>, <strong>ICCV</strong>, and <strong>CVIU</strong>.
+    <p class="tagline">
+      Research in computer vision aiming to understand human behavior <strong>at the level of groups</strong> rather than individuals — in particular, <em>group detection</em> (who belongs together), <em>group activity representation learning</em> (what the group is doing), and <em>joint attention estimation</em> (where people look together), with <strong>first-author</strong> papers at <strong>CVPR</strong>, <strong>ICCV</strong>, and <strong>CVIU</strong>.
     </p>
     <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:20px;">Please feel free to reach out via LinkedIn.</p>
     <div class="hero-cta">
@@ -887,7 +852,7 @@
 <!-- Footer -->
 <footer>
   <div class="footer-left">Chihiro Nakatani</div>
-  <div class="footer-right">Last updated: October 24, 2026 · © 2026 Chihiro Nakatani</div>
+  <div class="footer-right">Last updated: October 25, 2026 · © 2026 Chihiro Nakatani</div>
 </footer>
 
 <script src="./publications_shared.js"></script>

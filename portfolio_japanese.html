@@ -229,42 +229,12 @@
       color: var(--text);
       font-weight: 600;
     }
-    .hero-focus {
-      list-style: none;
-      max-width: 540px;
-      margin: -14px 0 18px;
-      display: grid;
-      gap: 7px;
-    }
-    .hero-focus li {
-      position: relative;
-      padding-left: 18px;
+    .hero-credential {
       font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--text-secondary);
+      font-weight: 500;
+      color: var(--accent);
+      margin: -8px 0 20px;
     }
-    .hero-focus li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.6em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-    .hero-focus strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-    .hero-note {
-      max-width: 540px;
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--text-secondary);
-      margin-bottom: 24px;
-    }
-    .hero-note strong { color: var(--text); font-weight: 600; }
     .hero-photo {
       position: relative;
     }
@@ -668,16 +638,12 @@
     <h1>
       Chihiro Nakatani
     </h1>
+    <p class="hero-credential">博士（工学） / 専門：コンピュータビジョン、集団行動理解</p>
     <p class="tagline">
-      2026年9月に<strong>博士（工学）</strong>を取得しました。映像に限らず、人の行動を<strong>個人ではなく集団の単位</strong>で理解することを目指しています。
+      2026年に<a href="https://www.toyota-ti.ac.jp/">豊田工業大学</a>にて<strong>博士（工学）</strong>を取得。在学中は日本学術振興会特別研究員（DC2）として研究に従事し、<a href="https://www.idiap.ch/">Idiap Research Institute</a>（スイス）での訪問研究や、<a href="https://www.fighters.co.jp/">北海道日本ハムファイターズ</a>でのスポーツアナリスト業務にも携わった。
     </p>
-    <ul class="hero-focus">
-      <li><strong>誰が集団を成すか</strong> — 集団検出</li>
-      <li><strong>その集団が何をしているか</strong> — 集団行動の表現学習</li>
-      <li><strong>どこを共に見ているか</strong> — 共同注意の推定</li>
-    </ul>
-    <p class="hero-note">
-      <strong>CVPR</strong>・<strong>ICCV</strong>・<strong>CVIU</strong> に<strong>筆頭著者</strong>論文として発表。
+    <p class="tagline">
+      コンピュータビジョンを専門とし、人の行動を個人ではなく<strong>「集団」の単位</strong>で理解することを目指している。とりわけ、誰と誰が集団を成すかを捉える「集団検出」、その集団が何をしているかを表す「集団行動の表現学習」、人々がどこを共に見ているかを推定する「共同注意の推定」に取り組んできた。これらの成果を <strong>CVPR</strong>・<strong>ICCV</strong>・<strong>CVIU</strong> に<strong>筆頭著者</strong>として発表している。
     </p>
     <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:20px;">ご関心をお持ちいただけましたら、LinkedIn からお気軽にご連絡ください。</p>
     <div class="hero-cta">
@@ -884,7 +850,7 @@
 <!-- Footer -->
 <footer>
   <div class="footer-left">Chihiro Nakatani</div>
-  <div class="footer-right">最終更新：2026年10月24日 · © 2026 Chihiro Nakatani</div>
+  <div class="footer-right">最終更新：2026年10月25日 · © 2026 Chihiro Nakatani</div>
 </footer>
 
 <script src="./publications_shared.js"></script>
